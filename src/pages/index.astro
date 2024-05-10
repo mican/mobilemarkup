@@ -1,8 +1,9 @@
 ---
 import Container from "../components/container";
-import HeroPost from "../components/hero-post";
 import Intro from "../components/intro.astro";
 import Layout from "../components/layout";
+import PageHeader from "../components/PageHeader.astro"
+import HomeBlock from "../components/HomeBlock.astro";
 import MoreStories from "../components/more-stories";
 import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
 
@@ -70,11 +71,7 @@ const morePosts = posts
 
 <>
   <Layout preview={false} currentSlug={""}>
-    <Container>
-      <Intro />
-      <HeroPost client:visible preview={false} title={heroPost.title} coverImage={heroPost.coverImage} date={heroPost.date} author={heroPost.author}
-        slug={heroPost.slug} excerpt={heroPost.excerpt} />
-      <MoreStories client:visible preview={false} posts={morePosts} />
-    </Container>
+    <PageHeader />
+    <HomeBlock />
   </Layout>
 </>

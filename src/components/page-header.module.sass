@@ -1,0 +1,32 @@
+.pageHeader
+
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 1
+  composes: component from "./component.module.css"
+  h1
+    margin: 0
+
+.navigation
+  display: flex
+  flex-flow: row nowrap
+  justify-content: space-between
+  align-items: center
+  color: #aaa
+  ul
+    display: flex
+    flex-flow: row nowrap
+    list-style-type: none
+  li + li
+    margin-left: 1.5em
+
+  a
+    transition: all .25s ease
+
+  a:hover
+    color: black
+
+.link-active
+  color: black

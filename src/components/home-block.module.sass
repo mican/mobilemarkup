@@ -1,0 +1,46 @@
+.homeBlock
+  min-height: 100vh
+  display: flex
+  align-items: center
+  position: sticky
+  top: 0
+  z-index: 0
+
+.title
+  font-family: Poppins, sans-serif
+  @apply text-base md:text-3xl md:leading-normal mb-5
+  span
+    display: block
+    white-space: nowrap
+
+.t1
+  font-weight: 500
+.t2
+  font-weight: 400
+.t3
+  font-weight: 300
+
+.actions
+  display: flex
+  flex-flow: row wrap
+  align-items: center
+  align-content: center
+
+  a:not([class])
+    color: inherit
+    text-decoration: underline
+
+  > *:not(:last-child)
+    margin-right: 1em
+
+.button
+  border-radius: 5px
+  padding: 1em 1.25em
+  background-color: #FF3838
+  // background-color: #FF3838
+  color: white
+  font-weight: 500
+  // font-size: 1.125em
+  cursor: pointer
+  text-decoration: none
+  @apply text-base md:text-lg
