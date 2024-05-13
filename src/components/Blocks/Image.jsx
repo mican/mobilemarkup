@@ -1,8 +1,7 @@
-import React from 'react'
 import { Image as DatoImage } from 'react-datocms'
 import classNames from 'classnames'
 
-import * as styles from '../styles/image.module.sass'
+import styles from './image.module.sass'
 
 // Render inline SVG with fallback non-svg images
 export default function Image({ image, className, alt }) {
@@ -15,8 +14,8 @@ export default function Image({ image, className, alt }) {
   if (image.url) {
     return <img className={classNames(styles.image, className)} src={image.url} alt={image.title} />
   }
-  if (image.gatsbyImageData) {
-    return <DatoImage className={classNames('image', styles.image, className)} data={image} alt={alt || image.title} />
+  if (image.responsiveImage) {
+    return <DatoImage lazyLoad={true} className={classNames('image', styles.image, className)} data={image.responsiveImage} />
   }
 
   // If none of the above conditions are met, just log the image

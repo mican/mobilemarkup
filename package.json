@@ -2,7 +2,6 @@
   "name": "@example/basics",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,9 +9,8 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/react": "^3.3.4",
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.8.0",
+    "@astrojs/renderer-react": "^0.5.0",
     "postcss": "^8.4.38",
     "postcss-sass": "^0.5.0",
     "react": "^18.3.1",
@@ -21,16 +19,20 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^5.2.1",
+    "@astrojs/prefetch": "^0.4.1",
+    "@astrojs/react": "^3.3.4",
+    "@astrojs/sitemap": "^3.1.4",
     "@datocms/cma-client-node": "^3.3.1",
     "@fontsource/poppins": "^5.0.14",
     "@tailwindcss/typography": "^0.5.13",
-    "@types/react": "^18.3.1",
+    "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
+    "astro": "^4.8.3",
     "classnames": "^2.5.1",
     "date-fns": "^3.6.0",
-    "flickity": "2.3.0",
-    "react-flickity-component": "^4.0.7",
+    "flickity": "3.0.0",
     "react-datocms": "^6.0.1",
-    "sass": "^1.77.0"
+    "react-flickity-component": "^4.0.7",
+    "sass": "^1.77.1"
   }
 }

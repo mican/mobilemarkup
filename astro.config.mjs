@@ -7,5 +7,10 @@ export default defineConfig({
   integrations: [react(), tailwind()],
   postcss: {
     plugins: []
-  }
+  },
+  plugins: [
+    {
+      package: '@astrojs/renderer-react'
+    }
+  ]
 })
