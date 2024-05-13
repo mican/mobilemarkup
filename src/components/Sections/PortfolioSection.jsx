@@ -1,19 +1,18 @@
-import React from 'react'
+import { Image } from 'react-datocms'
 import classNames from 'classnames'
-import Image from '../../components/Image'
-import Slider from '../../components/Slider'
-import Video from '../../components/Video'
+import Slider from '../Blocks/Slider.jsx'
+import Video from '../Blocks/Video.jsx'
 
-import * as styles from '../../styles/block-projects.module.sass'
+import styles from './portfolio-section.module.sass'
 
-const ProjectsBlock = ({ projects }) => {
+export default function PortfolioSection({ projects }) {
   return (
-    <section className={styles.blockProjects} id="blockProjects">
+    <section className={styles.projectsSection} id="blockProjects">
       <ul className={styles.projectsCollection} id="projectsWrapper">
         {projects &&
           projects.map((project, i) => (
             <li key={i} className={styles.projectItem}>
-              {project.images.length > 0 && (
+              {/* {project.images.length > 0 && (
                 <div className={classNames(styles.projectImages, 'shadow-lg bg-white')}>
                   <Slider>
                     {project.images.map((image, i) => (
@@ -23,7 +22,7 @@ const ProjectsBlock = ({ projects }) => {
                     ))}
                   </Slider>
                 </div>
-              )}
+              )} */}
               {project.video && (
                 <figure className={styles.projectVideo}>
                   <Video id={project.video.providerUid} title={project.video.title} />
@@ -36,5 +35,3 @@ const ProjectsBlock = ({ projects }) => {
     </section>
   )
 }
-
-export default ProjectsBlock

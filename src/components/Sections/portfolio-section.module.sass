@@ -1,0 +1,116 @@
+.projectsSection
+  // margin-top: 100vh
+  // background: linear-gradient(to right, #360033, #0b8793)
+  // background: linear-gradient(to right, #6441a5, #2a0845)
+  // background: linear-gradient(to right, #0f2027, #203a43, #2c5364)
+  overflow: hidden
+  left: 0
+  box-sizing: border-box
+  background-color: #252423
+  position: relative
+  z-index: 2
+  height: 100vh
+  display: flex
+  flex-flow: row nowrap
+
+  // user-select: none
+  // &:before
+  //   content: ''
+  //   position: fixed
+  //   width: 100%
+  //   height: 100%
+  //   background: url('https://cdn.dribbble.com/users/823181/screenshots/3894893/scenery_illustration.png') no-repeat center center
+  //   background-attachment: scroll
+  //   background-size: cover
+  //   will-change: transform
+  //   z-index: -1
+
+.projectsCollection
+  list-style-type: none
+  margin: 0
+  // display: flex
+  justify-content: flex-start
+  align-items: center
+  // padding: 50px 10vw
+  box-sizing: border-box
+  @apply lg:h-screen lg:flex py-20 px-5 lg:px-0
+
+\:root
+
+  --siteMargin: calc( (100vw - 60rem) / 2 )
+  --projectMargin: calc( (100vw - 60rem) / 4 - 3rem )
+
+.projectItem
+  @apply  lg:w-[112vmin] lg:h-[63vmin] lg:py-0 lg:mx-[var(--projectMargin)] relative select-none
+  &:first-child
+    @apply lg:ml-[var(--siteMargin)]
+  &:last-child
+    @apply lg:mr-[var(--siteMargin)]
+  + *
+    @apply mt-20 lg:mt-0
+
+.projectImages, .projectVideo
+  width: 100%
+  height: 100%
+  overflow: hidden
+  border-radius: 5px
+  // transform-style: preserve-3d
+
+.projectImages
+  @apply w-full aspect-video
+
+.projectVideo
+  // pointer-events: none
+
+.projectName
+  @apply text-4xl lg:text-[5em] leading-normal
+  // font-size: 5em
+    white-space: nowrap
+    color: #F6F4F2
+    position: absolute
+    right: 0
+    left: 0
+    text-align: center
+    top: -.8em
+    font-weight: bold
+  // text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31
+    text-shadow: 0 .2em .25em #2e2e31, 0 .4em .6em #2e2e31
+
+  // @apply inline-block text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-fuchsia-500
+  // text-shadow: 0 2px 4px rgba(0,0,0,0.10)
+
+  // background-image: url('https://cdn.dribbble.com/users/823181/screenshots/3894893/scenery_illustration.png')
+  // background-size: cover
+  // background-position: center
+  // background-attachment: fixed
+  // background-clip: text
+  // -webkit-background-clip: text
+  // color: transparent
+
+  // background: linear-gradient(to right,hsl(98 100% 62%),hsl(204 100% 59%))
+
+//   &:before, &:after
+//     content: ''
+//     padding: .9em .4em
+//     position: absolute
+//     left: 50%
+//     width: 100%
+//     top: 50%
+//     display: block
+//     border: 15px solid red
+//     transform: translateX(-50%) translateY(-50%) rotate(0deg)
+//     animation: 10s infinite alternate ease-in-out tipsy
+
+//   &:before
+//     border-color: #d9524a #d9524a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)
+//     z-index: -1
+
+//   &:after
+//     border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d9524a #d9524a
+//     box-shadow: 25px 25px 25px rgba(46, 46, 49, 0.8)
+
+// @keyframes tipsy
+//   0%
+//     transform: translateX(-50%) translateY(-50%) rotate(0deg)
+//   100%
+//     transform: translateX(-50%) translateY(-50%) rotate(360deg)

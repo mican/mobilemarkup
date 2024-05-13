@@ -1,5 +1,5 @@
 import React from 'react'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { Image as DatoImage } from 'react-datocms'
 import classNames from 'classnames'
 
 import * as styles from '../styles/image.module.sass'
@@ -16,10 +16,10 @@ export default function Image({ image, className, alt }) {
     return <img className={classNames(styles.image, className)} src={image.url} alt={image.title} />
   }
   if (image.gatsbyImageData) {
-    return <GatsbyImage className={classNames('image', styles.image, className)} image={getImage(image)} alt={alt || image.title} />
+    return <DatoImage className={classNames('image', styles.image, className)} data={image} alt={alt || image.title} />
   }
 
-  // console.log(image);
+  // If none of the above conditions are met, just log the image
   return (
     <div>
       <pre>{JSON.stringify(image, null, 2)}</pre>

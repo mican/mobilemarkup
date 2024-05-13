@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import Image from '../../components/Image'
+import Image from '../Image'
 
 import * as styles from '../../styles/block-technology.module.sass'
 

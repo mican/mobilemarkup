@@ -1,11 +1,8 @@
 import React, { useRef, useEffect } from 'react'
 import Flickity from 'react-flickity-component'
-// import fade from "flickity-fade";
-
 import 'flickity/css/flickity.css'
-// import "flickity-fade/flickity-fade.css";
 
-const Slider = ({ children }) => {
+export default function Slider({ children }) {
   const flickityInstance = useRef(null)
   const flickityOptions = {
     autoPlay: false,
@@ -42,16 +39,5 @@ const Slider = ({ children }) => {
     )
   }, [])
 
-  return (
-    <Flickity
-      flickityRef={carouselRef => {
-        flickityInstance.current = carouselRef
-      }}
-      options={flickityOptions}
-    >
-      {children}
-    </Flickity>
-  )
+  return <Flickity>{children}</Flickity>
 }
-
-export default Slider
