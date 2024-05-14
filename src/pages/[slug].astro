@@ -1,0 +1,120 @@
+---
+import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
+import Layout from "../components/layout";
+import PageHeader from '../components/Layout/PageHeader.astro'
+import TechnologyBlock from '../components/Blocks/TechnologyBlock.jsx'
+import TeamBlock from '../components/Blocks/TeamBlock.jsx'
+
+const { slug } = Astro.params
+
+const graphqlRequest = {
+    query: `
+      query PageBySlug($slug: String) {
+        site: _site {
+          favicon: faviconMetaTags {
+            ...metaTagsFragment
+          }
+        }
+        page(filter: {slug: {eq: $slug}}) {
+          seo: _seoMetaTags {
+            ...metaTagsFragment
+          }
+          title
+          slug
+          blocks {
+            __typename
+            ... on BlockTechnologyRecord {
+              id
+              technologies {
+                name
+                collection {
+                  name
+                  image {
+                    url
+                  }
+                }
+              }
+            }
+            ... on BlockTeamRecord {
+              id
+              people {
+                name
+                specialization
+                image {
+                  responsiveImage(imgixParams: {fm: webp }) {
+                    ...responsiveImageFragment
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      ${responsiveImageFragment}
+      ${metaTagsFragment}
+    `,
+  
+    variables: {
+      slug
+    },
+  };
+
+  const response = await fetch(
+  'https://graphql.datocms.com/',
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${import.meta.env.ASTRO_EXAMPLE_CMS_DATOCMS_API_TOKEN}`,
+    },
+    body: JSON.stringify(
+      graphqlRequest
+    ),
+  })
+
+  const parsedResponse = await response.json();
+  const page = parsedResponse.data.page
+
+  export async function getStaticPaths() {
+    const slugsResponse = await fetch(
+    'https://graphql.datocms.com/',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${import.meta.env.ASTRO_EXAMPLE_CMS_DATOCMS_API_TOKEN}`,
+      },
+      body: JSON.stringify(
+        {query: `{allPages {
+      slug
+    }}`}
+      ),
+    }
+  )
+  const parsedSlugResponse = await slugsResponse.json()
+
+  const pathsArray = []
+  for(const slug of parsedSlugResponse.data.allPages){
+    pathsArray.push({params: slug})
+  }
+  return pathsArray;
+}
+---
+
+<Layout preview={false} currentSlug={`posts/${slug}`}>
+  <PageHeader />
+  {page.blocks.map(block => {
+    switch (block.__typename) {
+      case 'BlockTechnologyRecord':
+        return <TechnologyBlock technologies={block.technologies} />
+      case 'BlockTeamRecord':
+        return <TeamBlock people={block.people} content={block.content} />
+      default:
+        console.log(`Sorry, we are out of ${block.__typename}.`)
+        return true
+    }
+  })}
+</Layout>

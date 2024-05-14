@@ -1,26 +1,22 @@
 import classNames from 'classnames'
-import Image from '../Image'
-
-import * as styles from '../../styles/block-technology.module.sass'
+import Image from './Image.jsx'
+import styles from './technology-block.module.sass'
 
 const TechnologyBlock = ({ technologies }) => (
-  <section className={styles.blockTechnology}>
-    <div className="container">
+  <section className={classNames(styles.blockTechnology, 'py-24 pt-48')}>
+    <div className="container mx-auto px-5">
       {technologies.map(tech => {
         return (
           <div className={classNames(styles.techBlock)}>
             {!tech.collection && tech.name}
             {tech.collection && (
-              <>
-                {/* <span className={styles.techLabel}>{tech.name}</span> */}
-                <ul className={styles.techCollection}>
-                  {tech.collection.map(t => (
-                    <li key={t.id} className={styles.techItem}>
-                      {t.image ? <Image className={styles.techImage} image={t.image} alt={t} /> : <span className={styles.itemTechName}>{t.name}</span>}
-                    </li>
-                  ))}
-                </ul>
-              </>
+              <ul className={styles.techCollection}>
+                {tech.collection.map(t => (
+                  <li key={t.id} className={styles.techItem}>
+                    {t.image ? <Image className={styles.techImage} image={t.image} alt={t} /> : <span className={styles.itemTechName}>{t.name}</span>}
+                  </li>
+                ))}
+              </ul>
             )}
           </div>
         )

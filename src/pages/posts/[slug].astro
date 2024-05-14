@@ -4,7 +4,6 @@ import HeaderBlog from "../../components/header-blog";
 import MoreStories from "../../components/more-stories";
 import PostHeader from "../../components/post-header";
 import PostBody from "../../components/post-body";
-import SectionSeparator from "../../components/section-separator";
 import { metaTagsFragment, responsiveImageFragment } from "../../lib/fragments";
 import Layout from "../../components/layout";
 
@@ -107,30 +106,31 @@ const graphqlRequest = {
 
   const morePosts = parsedResponse.data.morePosts
 
-export async function getStaticPaths() {
-  const slugsResponse = await fetch(
-  'https://graphql.datocms.com/',
-  {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': `Bearer ${import.meta.env.ASTRO_EXAMPLE_CMS_DATOCMS_API_TOKEN}`,
-    },
-    body: JSON.stringify(
-      {query: `{allPosts {
-    slug
-  }}`}
-    ),
-  }
-)
-const parsedSlugResponse = await slugsResponse.json()
+  export async function getStaticPaths() {
+    const slugsResponse = await fetch(
+    'https://graphql.datocms.com/',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${import.meta.env.ASTRO_EXAMPLE_CMS_DATOCMS_API_TOKEN}`,
+      },
+      body: JSON.stringify(
+        {query: `{allPosts {
+      slug
+    }}`}
+      ),
+    }
+  )
+  
+  const parsedSlugResponse = await slugsResponse.json()
 
-const pathsArray = []
-for(const slug of parsedSlugResponse.data.allPosts){
-  pathsArray.push({params: slug})
-}
-  return pathsArray;
+  const pathsArray = []
+  for(const slug of parsedSlugResponse.data.allPosts){
+    pathsArray.push({params: slug})
+  }
+    return pathsArray;
 }
 ---
 
@@ -147,7 +147,6 @@ for(const slug of parsedSlugResponse.data.allPosts){
       />
       <PostBody content={post.content} />
     </article>
-    <SectionSeparator />
     <MoreStories 
       client:visible
       preview={false}

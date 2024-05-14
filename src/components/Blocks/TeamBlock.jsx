@@ -1,7 +1,5 @@
-// import { renderText } from "../../utils";
-import Image from '../Image'
-
-import * as styles from '../../styles/block-team.module.sass'
+import Image from './Image'
+import styles from './team-block.module.sass'
 
 const TeamBlock = ({ people, content }) => (
   <section className={styles.blockTeam}>
