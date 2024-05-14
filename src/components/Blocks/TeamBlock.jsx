@@ -1,4 +1,3 @@
-import React from 'react'
 // import { renderText } from "../../utils";
 import Image from '../Image'
 

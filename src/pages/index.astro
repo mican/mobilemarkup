@@ -5,6 +5,7 @@ import IntroSection from "../components/Sections/IntroSection.astro";
 import PortfolioSection from '../components/Sections/PortfolioSection.jsx'
 import { metaTagsFragment, responsiveImageFragment } from "../lib/fragments";
 
+
 const graphqlRequest = {
   query: `
       {
@@ -25,7 +26,7 @@ const graphqlRequest = {
             title
           }
           images {
-            responsiveImage(imgixParams: { fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+            responsiveImage(imgixParams: { fm: webp, fit: crop }) {
               ...responsiveImageFragment
             }
           }
@@ -73,13 +74,11 @@ const response = await fetch(
 const parsedResponse = await response.json()
 
 const projects = parsedResponse.data.allProjects
-const posts = parsedResponse.data.allPosts
+
 ---
 
-<>
-  <Layout preview={false} currentSlug={""}>
-    <PageHeader />
-    <IntroSection />
-    <PortfolioSection projects={projects} client:visible />
-  </Layout>
-</>
+<Layout preview={false} currentSlug={""}>
+  <PageHeader />
+  <IntroSection />
+  <PortfolioSection projects={projects} client:visible />        
+</Layout>

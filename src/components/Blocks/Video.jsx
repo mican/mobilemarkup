@@ -1,4 +1,3 @@
-import React from 'react'
 const Video = ({ id, title, ...props }) => (
   <iframe
     className="w-full aspect-video pointer-events-none"
