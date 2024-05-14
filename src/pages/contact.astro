@@ -1,0 +1,10 @@
+---
+import Layout from "../components/layout";
+import PageHeader from "../components/Layout/PageHeader.astro"
+import ContactSection from "../components/Sections/ContactSection.jsx";
+---
+
+<Layout preview={false} currentSlug={"contact"}>
+  <PageHeader />
+  <ContactSection client:visible />
+</Layout>
