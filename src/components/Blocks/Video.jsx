@@ -1,12 +1,11 @@
-export default function Video({ id, title, ...props }) {
+import React, { Suspense } from 'react'
+
+const LazyYoutube = React.lazy(() => import('./Youtube.jsx'))
+
+export default function Video({ id }) {
   return (
-    <iframe
-      className="w-full aspect-video pointer-events-none"
-      src={'https://www.youtube.com/embed/' + id + '?controls=0&autoplay=1&mute=1&loop=1&playlist=' + id}
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
+    <Suspense fallback={<div>Loading...</div>}>
+      <LazyYoutube id={id} />
+    </Suspense>
   )
 }
