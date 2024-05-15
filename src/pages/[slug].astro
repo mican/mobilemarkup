@@ -104,7 +104,7 @@ const graphqlRequest = {
 }
 ---
 
-<Layout preview={false} currentSlug={`posts/${slug}`}>
+<Layout title={`${page.title} — mobileMarkup`} preview={false} currentSlug={slug}>
   <PageHeader />
   {page.blocks.map(block => {
     switch (block.__typename) {
