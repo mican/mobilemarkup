@@ -1,6 +1,6 @@
-import React, { useEffect, useState, Suspense } from 'react'
+import Flickity from 'react-flickity-component-module'
+
 import 'flickity/css/flickity.css'
-const Flickity = React.lazy(() => import('react-flickity-component'))
 
 export default function Slider({ children }) {
   const flickityOptions = {
@@ -36,9 +36,5 @@ export default function Slider({ children }) {
     }
   }
 
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Flickity options={flickityOptions}>{children}</Flickity>
-    </Suspense>
-  )
+  return <Flickity options={flickityOptions}>{children}</Flickity>
 }

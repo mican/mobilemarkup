@@ -33,7 +33,7 @@
     "flickity": "2.3.0",
     "gsap": "^3.12.5",
     "react-datocms": "^6.0.1",
-    "react-flickity-component": "^4.0.7",
+    "react-flickity-component-module": "^4.0.7",
     "sass": "^1.77.1"
   }
 }
