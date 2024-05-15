@@ -1,5 +1,6 @@
-import Flickity from 'react-flickity-component'
+import React, { useEffect, useState, Suspense } from 'react'
 import 'flickity/css/flickity.css'
+const Flickity = React.lazy(() => import('react-flickity-component'))
 
 export default function Slider({ children }) {
   const flickityOptions = {
@@ -35,5 +36,17 @@ export default function Slider({ children }) {
     }
   }
 
-  return <Flickity options={flickityOptions}>{children}</Flickity>
+  useEffect(() => {
+    const loadScrollTrigger = async () => {
+      const Flickity = await require('react-flickity-component')
+    }
+
+    loadScrollTrigger()
+  }, []) // Empty dependency array to run this effect only once
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Flickity options={flickityOptions}>{children}</Flickity>
+    </Suspense>
+  )
 }
