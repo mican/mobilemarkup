@@ -36,14 +36,6 @@ export default function Slider({ children }) {
     }
   }
 
-  useEffect(() => {
-    const loadScrollTrigger = async () => {
-      const Flickity = await require('react-flickity-component')
-    }
-
-    loadScrollTrigger()
-  }, []) // Empty dependency array to run this effect only once
-
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Flickity options={flickityOptions}>{children}</Flickity>
