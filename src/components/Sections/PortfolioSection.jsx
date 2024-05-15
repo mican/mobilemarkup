@@ -2,10 +2,13 @@ import classNames from 'classnames'
 import { useRef, useEffect } from 'react'
 
 import { gsap } from 'gsap'
+import loadable from '@loadable/component'
 
 import Slider from '../Blocks/Slider.jsx'
-import Video from '../Blocks/Video.jsx'
 import Image from '../Blocks/Image.jsx'
+// import Video from '../Blocks/Video.jsx'
+const LazyVideo = loadable(() => import('../Blocks/Video.jsx'))
+const Video = props => <LazyVideo {...props} />
 
 import styles from './portfolio-section.module.sass'
 
