@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 
 export default function Video({ id }) {
-  const videoRef = useRef(null)
+  const containerRef = useRef(null)
   const [isVisible, setIsVisible] = useState(false)
   const posterSrc = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
 
@@ -14,35 +14,35 @@ export default function Video({ id }) {
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.intersectionRatio === 1) {
+        if (entry.isIntersecting) {
           setIsVisible(true)
-          observer.unobserve(entry.target)
+        } else {
+          setIsVisible(false)
         }
       })
     }, options)
 
-    if (videoRef.current) {
-      observer.observe(videoRef.current)
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
     }
 
     return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current)
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current)
       }
     }
   }, [])
 
   return (
-    <div>
+    <div ref={containerRef}>
       {isVisible ? (
         <iframe
-          ref={videoRef}
           className="w-full aspect-video pointer-events-none"
-          src={'https://www.youtube.com/embed/' + id + '?controls=0&autoplay=1&mute=1&loop=1&playlist=' + id}
+          src={`https://www.youtube.com/embed/${id}?controls=0&autoplay=1&mute=1&loop=1&playlist=${id}`}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       ) : (
         <img src={posterSrc} alt="Poster" />
