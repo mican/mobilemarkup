@@ -33,6 +33,7 @@
     "date-fns": "^3.6.0",
     "flickity": "2.3.0",
     "gsap": "^3.12.5",
+    "lenis": "^1.0.45",
     "react-datocms": "^6.0.1",
     "react-flickity-component-module": "^4.0.7",
     "sass": "^1.77.1"
