@@ -49,9 +49,9 @@ export default function PortfolioSection({ projects }) {
   }, []) // Empty dependency array to run this effect only once
 
   return (
-    <section ref={container} className={styles.portfolioSection} id="blockProjects">
+    <section ref={container} className={classNames(styles.portfolioSection, 'lg:flex')} id="blockProjects">
       <h2 className="sr-only">Web development projects</h2>
-      <ul className={classNames(styles.projectList, 'lg:h-screen lg:flex lg:flex-nowrap py-20 px-5 lg:px-0')} id="projectsWrapper">
+      <ul className={classNames(styles.projectList, 'lg:h-screen lg:flex lg:flex-row lg:flex-nowrap py-20 px-5 lg:px-0')} id="projectsWrapper">
         {projects &&
           projects.map((project, i) => {
             return (
