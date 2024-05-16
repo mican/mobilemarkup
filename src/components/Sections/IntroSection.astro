@@ -1,4 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+import bg from '../../images/mobilemarkup-bg.svg';
+import waves from '../../images/abstract-wavy-background.jpg';
+
 import "@fontsource/poppins/300.css";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/500.css";
@@ -17,3 +21,8 @@ import styles from './intro-section.module.sass';
     </div>
   </div>
 </section>
+<div class={styles.bg}>
+  <Image class={styles.waves} src={waves} alt="" />
+  <Image class={styles.mask} src={bg} alt="" />
+  
+</div>
