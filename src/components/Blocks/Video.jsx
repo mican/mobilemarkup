@@ -54,7 +54,7 @@ export default function Video({ id, className, title }) {
 
   return (
     <figure ref={containerRef} className={classNames('video', styles.video, className)}>
-      <Image image={posterSrc} alt={title} />
+      <Image image={posterSrc} alt={title + ' video poster'} />
       {isReady && (
         <iframe
           ref={iframeRef}
