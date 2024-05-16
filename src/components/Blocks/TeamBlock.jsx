@@ -3,6 +3,7 @@ import styles from './team-block.module.sass'
 
 const TeamBlock = ({ people, content }) => (
   <section className={styles.blockTeam}>
+    <h2 className="sr-only">Web developers</h2>
     <div className="container">
       <div className={styles.collection}>
         {people &&

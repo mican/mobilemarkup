@@ -11,8 +11,8 @@ export default function Image({ image, className, alt }) {
   if (image.svg) {
     return <div className={classNames(styles.icon, className)} dangerouslySetInnerHTML={{ __html: image.svg.content }} />
   }
-  if (image.url) {
-    return <img className={classNames(styles.image, className)} src={image.url} alt={image.title} />
+  if (image.url || typeof image === 'string') {
+    return <img className={classNames(styles.image, className)} src={typeof image === 'string' ? image : image.url} alt={image.title || alt} loading="lazy" />
   }
   if (image.responsiveImage) {
     return <DatoImage lazyLoad={true} className={classNames('image', styles.image, className)} data={image.responsiveImage} />

@@ -1,0 +1,15 @@
+.video
+  > *:not(iframe)
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+
+  iframe
+    position: relative
+    transition: opacity .3s ease
+    opacity: 0
+
+    &:global(.is-playing)
+      opacity: 1

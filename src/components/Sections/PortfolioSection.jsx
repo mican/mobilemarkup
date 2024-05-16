@@ -2,13 +2,13 @@ import classNames from 'classnames'
 import { useRef, useEffect } from 'react'
 
 import { gsap } from 'gsap'
-import loadable from '@loadable/component'
+// import loadable from '@loadable/component'
 
 import Slider from '../Blocks/Slider.jsx'
 import Image from '../Blocks/Image.jsx'
-// import Video from '../Blocks/Video.jsx'
-const LazyVideo = loadable(() => import('../Blocks/Video.jsx'))
-const Video = props => <LazyVideo {...props} />
+import Video from '../Blocks/Video.jsx'
+// const LazyVideo = loadable(() => import('../Blocks/Video.jsx'))
+// const Video = props => <LazyVideo {...props} />
 
 import styles from './portfolio-section.module.sass'
 
@@ -50,6 +50,7 @@ export default function PortfolioSection({ projects }) {
 
   return (
     <section ref={container} className={styles.portfolioSection} id="blockProjects">
+      <h2 className="sr-only">Web development projects</h2>
       <ul className={classNames(styles.projectList, 'lg:h-screen lg:flex lg:flex-nowrap py-20 px-5 lg:px-0')} id="projectsWrapper">
         {projects &&
           projects.map((project, i) => {
@@ -66,11 +67,7 @@ export default function PortfolioSection({ projects }) {
                     </Slider>
                   </div>
                 )}
-                {project.video && (
-                  <figure className={styles.projectVideo}>
-                    <Video id={project.video.providerUid} title={project.video.title} />
-                  </figure>
-                )}
+                {project.video && <Video id={project.video.providerUid} title={project.video.title} className={styles.projectVideo} />}
                 <h3 className={classNames('project-name', styles.projectName)}>{project.name}</h3>
               </li>
             )
