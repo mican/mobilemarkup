@@ -75,9 +75,13 @@ const parsedResponse = await response.json()
 
 const projects = parsedResponse.data.allProjects
 
+const title = 'mobileMarkup — Development for Web' 
+
+const description = 'We build responsive Astro/React/WordPress websites using top notch technologies. We like Sass, CSS Modules, TailwindCSS, GSAP animations and headless CMS-es like DATO, Contentful, Sanity and Strapi.'
+
 ---
 
-<Layout title={"mobileMarkup — Web Development"} currentSlug={""}>
+<Layout title={title} description={description} currentSlug={""}>
   <PageHeader />
   <IntroSection />
   <PortfolioSection projects={projects} client:visible />        

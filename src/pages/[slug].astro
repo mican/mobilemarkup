@@ -41,7 +41,7 @@ const graphqlRequest = {
                 name
                 specialization
                 image {
-                  responsiveImage(imgixParams: {fm: webp }) {
+                  responsiveImage(imgixParams: {fit: crop, w: 64, h: 64 }) {
                     ...responsiveImageFragment
                   }
                 }
