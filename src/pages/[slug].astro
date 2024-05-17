@@ -41,7 +41,7 @@ const graphqlRequest = {
                 name
                 specialization
                 image {
-                  responsiveImage(imgixParams: {fit: crop, w: 64, h: 64 }) {
+                  responsiveImage(imgixParams: {fm: webp,  w: 64, h: 64 }) {
                     ...responsiveImageFragment
                   }
                 }
@@ -111,7 +111,7 @@ const graphqlRequest = {
       case 'BlockTechnologyRecord':
         return <TechnologyBlock technologies={block.technologies} />
       case 'BlockTeamRecord':
-        return <TeamBlock people={block.people} content={block.content} />
+        return <TeamBlock people={block.people} content={block.content} client:load />
       default:
         console.log(`Sorry, we are out of ${block.__typename}.`)
         return true

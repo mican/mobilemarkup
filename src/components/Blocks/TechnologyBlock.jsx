@@ -6,7 +6,7 @@ export default function TechnologyBlock({ technologies }) {
   return (
     <section className={classNames(styles.blockTechnology, 'py-24 pt-48')}>
       <h2 className="sr-only">Web development technologies</h2>
-      <div className="container mx-auto px-5">
+      <div className="container mx-auto px-5 lg:max-w-6xl">
         {technologies.map(tech => {
           return (
             <div className={classNames(styles.techBlock)}>

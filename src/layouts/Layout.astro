@@ -23,9 +23,6 @@ const { title, description } = Astro.props as Props;
   <script type="module">
     document.addEventListener('DOMContentLoaded', () => {
       const lenis = new Lenis();
-      // lenis.on('scroll', (e) => {
-      //   console.log(e);
-      // });
       function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);
@@ -34,3 +31,54 @@ const { title, description } = Astro.props as Props;
     });
   </script>
 </html>
+<style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    -webkit-font-feature-settings: "liga", "kern";
+    font-feature-settings: "liga", "kern";
+    font-size: 18px;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+    font: 100%/1.5 "Poppins", sans-serif;
+    word-wrap: break-word;
+    font-kerning: normal;
+    -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+    -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+    -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+    font-feature-settings: "kern", "liga", "clig", "calt";
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    overscroll-behavior: none;
+  }
+  body a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .container {
+    max-width: 60em;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+  }
+
+  .animated {
+    background-color: rgba(255, 0, 0, 0.01);
+  }
+
+  .flickity-slider .is-selected {
+    z-index: 1;
+  }
+</style>
