@@ -3,6 +3,14 @@ import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 
 export default defineConfig({
-  integrations: [react(), tailwind()],
-  renderers: ['@astrojs/renderer-react']
+  site: 'https://mobilemarkup.com',
+  integrations: [react(), tailwind(), sitemap()],
+  renderers: ['@astrojs/renderer-react'],
+  vite: {
+    css: {
+      modules: {
+        localsConvention: 'dashes' // Set localsConvention to 'dashes'
+      }
+    }
+  }
 })
