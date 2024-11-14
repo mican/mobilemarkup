@@ -1,4 +1,4 @@
-.homeBlock
+.home-block
   min-height: 100vh
   display: flex
   align-items: center
@@ -35,12 +35,26 @@
 
 .button
   border-radius: 5px
-  padding: 1em 1.25em
+  padding: .75em 1em
+  border: 1px solid #FF3838
   background-color: #FF3838
   // background-color: #FF3838
   color: white
   font-weight: 500
   // font-size: 1.125em
+  transition: all .15s ease
   cursor: pointer
   text-decoration: none
-  @apply text-base md:text-lg
+  @apply text-base md:text-lg shadow-md
+  &:hover
+    box-shadow: none
+
+.button-outlined
+  composes: button
+  border-color: #FF3838
+  background-color: transparent
+  color: black
+  @apply shadow-none
+  &:hover
+    background-color: #FF3838
+    color: white
