@@ -29,6 +29,9 @@ importers:
       '@fontsource/poppins':
         specifier: ^5.1.0
         version: 5.1.0
+      '@jop-software/astro-matomo':
+        specifier: ^1.1.1
+        version: 1.1.1
       '@loadable/component':
         specifier: ^5.16.4
         version: 5.16.4(react@18.3.1)
@@ -544,6 +547,9 @@ packages:
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
     engines: {node: '>=12'}
+
+  '@jop-software/astro-matomo@1.1.1':
+    resolution: {integrity: sha512-NnDDTWZ54BehUabmg4O1B4jH7d+eLYQMeLarzCq6BytJjrGByi0Ih5I5YnNloJH3sT2Oh7k6x5QVyreuA2fM+w==}
 
   '@jridgewell/gen-mapping@0.3.5':
     resolution: {integrity: sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==}
@@ -3326,6 +3332,8 @@ snapshots:
       strip-ansi-cjs: strip-ansi@6.0.1
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
+
+  '@jop-software/astro-matomo@1.1.1': {}
 
   '@jridgewell/gen-mapping@0.3.5':
     dependencies:

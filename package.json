@@ -16,6 +16,7 @@
     "@astrojs/tailwind": "^5.1.2",
     "@datocms/cma-client-node": "^3.3.15",
     "@fontsource/poppins": "^5.1.0",
+    "@jop-software/astro-matomo": "^1.1.1",
     "@loadable/component": "^5.16.4",
     "@tailwindcss/typography": "^0.5.15",
     "@types/react": "^18.3.12",
