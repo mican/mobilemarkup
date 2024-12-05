@@ -19,6 +19,8 @@ const { title, description } = Astro.props as Props;
   <body>
     <slot />
   </body>
+  <script defer onload="this.setAttribute('data-domain',window.location.host);" src="https://plausible.mobilemarkup.com/js/script.outbound-links.pageview-props.tagged-events.js"></script>
+  <script defer data-domains="mobilemarkup.com" src="https://umami.mobilemarkup.com/script.js" data-website-id="c7935023-2d1b-43d2-8eed-12b3db8dc7cf"></script>
   <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script> 
   <script type="module">
     document.addEventListener('DOMContentLoaded', () => {
